@@ -22,7 +22,7 @@ export default class CodePane extends Component {
   }
   render() {
     return (
-      <pre className={this.props.className} style={[this.context.styles.components.codePane.pre, getStyles.call(this), this.props.style]}>
+      <pre data-line={this.props.lineHighlight} className={this.props.className} style={[this.context.styles.components.codePane.pre, getStyles.call(this), this.props.style]}>
         <code
           className={`language-${this.props.lang}`}
           style={this.context.styles.components.codePane.code}
@@ -43,10 +43,12 @@ CodePane.propTypes = {
   className: PropTypes.string,
   lang: PropTypes.string,
   source: PropTypes.string,
-  style: PropTypes.object
+  style: PropTypes.object,
+  lineHighlight: PropTypes.string
 };
 
 CodePane.defaultProps = {
   lang: 'markup',
-  source: ''
+  source: '',
+  lineHighlight: ''
 };
